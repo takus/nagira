@@ -1,4 +1,3 @@
-
 class Nagira < Sinatra::Base
 
   disable :protection
@@ -6,6 +5,8 @@ class Nagira < Sinatra::Base
 
   set :port, ENV['NAGIRA_PORT'].to_i if ENV['NAGIRA_PORT']
   set :bind, ENV['NAGIRA_BIND'] if ENV['NAGIRA_BIND']
+
+  set :server, %w[puma thin webrick]
 
   configure do 
     set :format, :json
